@@ -61,16 +61,21 @@ def add_category(category, appOrSite): # user inputs the category the new app or
 #check_window()
 
 f = open('categories.json',) 
-  
+
 # returns JSON object as  
 # a dictionary 
 data = json.load(f) 
-  
+
 # Iterating through the json list
 #for i in data['categories']: 
  #   print(i) 
-  
-print(data['categories'])
+
+for i in range(0, 3):
+    print(data['categories'][i]['appOrSite'])
+
+
+
+
 
 # Closing file 
 f.close() 
