@@ -59,7 +59,7 @@ def add_category(category, appOrSite): # user inputs the category the new app or
 #TODO: just nu skriver add_category över tidigare rader, det ska den inte göra.
 
 #check_window()
-
+# pröva en grej
 f = open('categories.json',) 
 
 # returns JSON object as  
