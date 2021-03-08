@@ -1,7 +1,7 @@
 
 import time
 import main as m
-from AppKit import NSWorkspace
+from AppKit import *
 
 def timer(new_window, category):
     start_time = time.time()
