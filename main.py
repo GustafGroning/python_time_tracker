@@ -71,12 +71,7 @@ data = json.load(f)
  #   print(i) 
 
 for i in range(0, 3):
-    print(data['categories'][i]['appOrSite'])
+    print(data['categories'])
 
-
-
-
-
-# Closing file 
 f.close() 
 
