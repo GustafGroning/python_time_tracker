@@ -1,7 +1,8 @@
 import json
-from AppKit import NSWorkspace
+from Appkit import NSApplication, NSApp, NSWorkspace
 import time
 import timer as t
+
 
 
 testList = ["Trello", "Safari"]
@@ -14,7 +15,7 @@ def check_window():
         else:
             print("no change")
             time.sleep(1)
-# om användaren byter fönster, skicka till check_category
+# om användaren byter fonster, skicka till check_category
 
 def check_category(new_window):
     f = open('categories.json',) 
@@ -28,14 +29,7 @@ def check_category(new_window):
     print(categoryList)
 
 
-    if new_window in categoryList: #Safari, Onenote, Trello
-        t.timer(new_window, category) #TODO: skapa category, det ska vara kategorin som 
-        time.sleep(1)
-    else:
-        print ("why are you not working stupid?")
-        time.sleep(1)
-        check_window()
-
+ 
 
 def add_category(category, appOrSite): # user inputs the category the new app or site is going into, followed by the full name of the app/site.
     jsonInput = {"category": category, "appOrSite": appOrSite}
@@ -60,6 +54,15 @@ for i in range(0, 3):
     print(data['categories'][i]['appOrSite'])
 
 f.close() 
+
+   if new_window in categoryList: #Safari, Onenote, Trello
+        t.timer(new_window, category) #TODO: skapa category, det ska vara kategorin som programmet hör
+        time.sleep(1)
+    else:
+        print ("why are you not working stupid?")
+        time.sleep(1)
+        check_window()
 """
 
 check_window()
+# Work, Fun, Time waster, 
