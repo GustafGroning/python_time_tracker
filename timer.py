@@ -1,9 +1,8 @@
-
 import time
 import main as m
-from AppKit import NSWorkspace
 
-def timer(new_window, category):
+
+def timer(category):
     start_time = time.time()
     while True:
         newer_window = NSWorkspace.sharedWorkspace().activeApplication()['NSApplicationName']
