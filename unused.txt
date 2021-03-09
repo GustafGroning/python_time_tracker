@@ -30,3 +30,30 @@ def add_category(category, appOrSite): # user inputs the category the new app or
         json.dump(jsonInput, f)
 #TODO: just nu skriver add_category över tidigare rader, det ska den inte göra.
 
+
+
+"""
+# pröva en grej
+f = open('categories.json',) 
+
+# returns JSON object as  
+# a dictionary 
+data = json.load(f) 
+
+# Iterating through the json list
+#for i in data['categories']: 
+ #   print(i) 
+
+for i in range(0, 3):
+    print(data['categories'][i]['appOrSite'])
+
+f.close() 
+
+   if new_window in categoryList: #Safari, Onenote, Trello
+        t.timer(new_window, category) #TODO: skapa category, det ska vara kategorin som programmet hör
+        time.sleep(1)
+    else:
+        print ("why are you not working stupid?")
+        time.sleep(1)
+        check_window()
+"""
