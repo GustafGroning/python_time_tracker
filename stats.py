@@ -2,32 +2,17 @@ import numpy as np
 from matplotlib import pyplot as plt 
 import json
 
-# kanske bäst att hårdkoda ändå? så att man får listor på allt och sedan plusar ihop det?
-
-
 
 f = open('timeLog.json',) 
-    # returns JSON object as a dictionary 
-
 data = json.load(f) 
 
-print(data["timeSaved"][1]) #ettan blir visst vilken rad det gäller, men den vägrar fortfarande hitta det specifika värdet, aka timeInMinutes
+for i in data['timeSaved']:
+    print(i['timeInMinutes']) #TODO: nu printar den alla värden i ordning! Nu ska den göra det enligt kategori och plusa, AKA ta allt "work" och lägg ihop.
+
 
 
 
 """
-for item in data["categories"]:
-    categoryList.append(item["appOrSite"])
-print(categoryList)
-
-
-timeSpent = {"work": 20, "fun": 30, "work": 45, "waste": 15}
-
-for item in timeSpent:
-    if item == "work":
-        print("success!")
-#print(timeSpent.get("work"))
-
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 sizes = [15, 30, 45, 10]
