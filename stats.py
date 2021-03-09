@@ -1,5 +1,25 @@
 import numpy as np 
 from matplotlib import pyplot as plt 
+import json
+
+# kanske bäst att hårdkoda ändå? så att man får listor på allt och sedan plusar ihop det?
+
+
+
+f = open('timeLog.json',) 
+    # returns JSON object as a dictionary 
+
+data = json.load(f) 
+
+print(data["timeSaved"][1]) #ettan blir visst vilken rad det gäller, men den vägrar fortfarande hitta det specifika värdet, aka timeInMinutes
+
+
+
+"""
+for item in data["categories"]:
+    categoryList.append(item["appOrSite"])
+print(categoryList)
+
 
 timeSpent = {"work": 20, "fun": 30, "work": 45, "waste": 15}
 
@@ -18,7 +38,7 @@ ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 #plt.show()
-
+"""
 
 """
 cirkeldiagram med tid spenderat i olika kategorier
