@@ -1,5 +1,5 @@
+from AppKit import NSWorkspace
 import json
-from AppKit import *
 import time
 import timer as t
 
@@ -22,7 +22,7 @@ def check_category(new_window):
     # returns JSON object as a dictionary 
 
     data = json.load(f) 
-    categoryList = [] #stores all categories so the timer knows how to store the data.
+    categoryList = [""] #stores all categories so the timer knows how to store the data.
 
     for item in data["categories"]:
         categoryList.append(item["appOrSite"])
