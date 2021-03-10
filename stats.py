@@ -8,42 +8,31 @@ f = open('timeLog.json',)
 data = json.load(f) 
 
 def get_stats():
-
-
     workList = []
     funList = []
     wasteList = []
-
     for i in data['timeSaved']:
+
         if (i)['category'] == "work": # i blir alltså raden som den printar ifrån, timeInMinutes väljer vilket värde som ska printas.
             workList.append(i['timeInMinutes'])
         
-
         if (i)['category'] == "fun":
             funList.append(i['timeInMinutes'])
         
-
         if (i)['category'] == "waste":
             wasteList.append(i['timeInMinutes'])
         
 
-    print("you have worked for ", sum(workList))
-    print("you had fun for ", sum(funList))
-    print("you wasted ", sum(wasteList))
-
     work = sum(workList)
-    print(work)
     fun = sum(funList)
-    print(fun)
     waste = sum(wasteList)
-    print(type(waste))
-    print(type(work))
-    print(type(fun))
+    # sums time spent in each category, sends to pie_chart for plotting.
+
     pie_chart(work, fun, waste)
+    bar_chart(work, fun, waste)
 
 
-
-def pie_chart( work,fun, waste):
+def pie_chart( work,fun, waste): #the pie shows % time spent in each category
 
     # Pie chart, where the slices will be ordered and plotted counter-clockwise:
     labels = 'work', 'fun', 'waste'
@@ -56,8 +45,42 @@ def pie_chart( work,fun, waste):
 
     plt.show()
 
+    bar_chart(work, fun, waste)
+
+def bar_chart(work, fun, waste): #bar shows amount of time spent, in minutes
 
 
+    minutesWorked = [work, fun, waste]
+    bars = ('work', 'fun', 'waste')
+    x_pos = np.arange(len(bars))
+
+    plt.bar(x_pos, minutesWorked, color = ("red", "blue", "green"))
+
+    plt.title('Time spent in minutes')
+    plt.xlabel('')
+    plt.ylabel('values')
+
+    plt.xticks(x_pos, bars)
+
+    plt.show()
+"""
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    categoryNames = ['work', 'fun', 'waste']
+    categories = [work,fun,waste]
+    ax.bar(categoryNames, categories)
+
+
+    ax.title('Time spent in minutes')
+    ax.xlabel('Categories')
+    ax.ylabel('Minutes')
+
+    
+
+"""
+    
+
+   
 
 get_stats()
 

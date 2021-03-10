@@ -1,47 +1,42 @@
 import time
-from appkit import NSWorkspace
+import datetime
+import stats as s
 
+def start_up():
+    print("Good morning! What would you like to do? \n")
+    user_choice()
 
-testList = ["Trello", "Safari"]
-def check_window(): 
-    first_window = NSWorkspace.sharedWorkspace().activeApplication()['NSApplicationName']
-    while True:
-        new_window = NSWorkspace.sharedWorkspace().activeApplication()['NSApplicationName']
-        if new_window != first_window:
-            check_category(new_window)
-        else:
-            print("no change")
-            time.sleep(1)
+def user_choice():
+    command = input("work on a task (type \"task\")\ncheck your stats (type \"stats\") \n ")
+    if command == "task":
+        check_task()
+    if command == "stats":
+        s.get_stats()
+    else: 
+        print("illegal input, please try again")
+        user_choice()
 
     
 def check_task(): 
-    category = input("Which category are you working in? Your options are \n work \n hobbies \n unproductive \n")
-    print("Great! Get to work, just type " + "stop" + "when you are done.")
+    category = input("Which category are you working in? Your options are \n work \n fun \n waste \n")
+    print("great! Get to work, just tell me when you're done.")
+    timer(category)
 
 
+def timer(category):
+    startTime = time.time()
+    response = input("are you done working? y/n \n")
+    time_log(category, startTime)
     
-"""
-1. ta in kategori
-2. printa "great! Get to work, just type "stop" when you are done.
-3. skriver "stop", spara tiden.
-"""
+    
 
 
 
-def timer():
-    start_time = time.time()
-    while True:
-        try:
-            print("tjena!")
-            #elapsed_time = time.time() - start_time
-            time.sleep(1)
-        except:
-            raise KeyboardInterrupt
-            break
+def time_log(category, startTime):
+    data = (time.time() - startTime)
+    dataInt = int(data)
+    print(data)
+    print(dataInt)
+    print("you worked for", dataInt, "seconds in category", category)
 
-
-
-
-
-timer()
-
+start_up()
