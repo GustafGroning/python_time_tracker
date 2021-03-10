@@ -1,12 +1,15 @@
-import numpy as np 
-from matplotlib import pyplot as plt 
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
+import matplotlib.pyplot as plt
 import json
-
+import array
 
 f = open('timeLog.json',) 
 data = json.load(f) 
 
 def get_stats():
+
+
     workList = []
     funList = []
     wasteList = []
@@ -27,25 +30,34 @@ def get_stats():
     print("you have worked for ", sum(workList))
     print("you had fun for ", sum(funList))
     print("you wasted ", sum(wasteList))
-    pie_chart(workList, funList, wasteList)
+
+    work = sum(workList)
+    print(work)
+    fun = sum(funList)
+    print(fun)
+    waste = sum(wasteList)
+    print(type(waste))
+    print(type(work))
+    print(type(fun))
+    pie_chart(work, fun, waste)
 
 
 
-def pie_chart(workList,funList,wasteList):
-# Pie chart, where the slices will be ordered and plotted counter-clockwise:
+def pie_chart( work,fun, waste):
+
+    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
     labels = 'work', 'fun', 'waste'
-    sizes = [workList, funList, wasteList]
-    explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'fun')
+    sizes = [work, fun, waste]
 
     fig1, ax1 = plt.subplots()
-    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-            shadow=True, startangle=90)
+    ax1.pie(sizes,  labels=labels, autopct='%1.1f%%',
+             startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
     plt.show()
+
+
 
 
 get_stats()
 
-"""
-cirkeldiagram med tid spenderat i olika kategorier
-"""
