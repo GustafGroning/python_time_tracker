@@ -42,7 +42,7 @@ def pie_chart( work,fun, waste): #the pie shows % time spent in each category
     ax1.pie(sizes,  labels=labels, autopct='%1.1f%%',
              startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
+    plt.title('Time spent in different categories')
     plt.show()
 
     bar_chart(work, fun, waste)
@@ -80,7 +80,4 @@ def bar_chart(work, fun, waste): #bar shows amount of time spent, in minutes
 """
     
 
-   
-
-get_stats()
 
