@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import array
+from datetime import date
+
 
 f = open('timeLog.json',) 
 data = json.load(f) 
@@ -63,21 +65,8 @@ def bar_chart(work, fun, waste): #bar shows amount of time spent, in minutes
     plt.xticks(x_pos, bars)
 
     plt.show()
-"""
-    fig = plt.figure()
-    ax = fig.add_axes([0,0,1,1])
-    categoryNames = ['work', 'fun', 'waste']
-    categories = [work,fun,waste]
-    ax.bar(categoryNames, categories)
-
-
-    ax.title('Time spent in minutes')
-    ax.xlabel('Categories')
-    ax.ylabel('Minutes')
 
     
-
-"""
-    
-
+today = date.today()
+print(today)
 
