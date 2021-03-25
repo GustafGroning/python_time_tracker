@@ -3,6 +3,7 @@ import datetime
 import stats as s
 import sys
 import json
+from datetime import date
 
 def start_up():
     print("Good morning! What would you like to do? \n")
@@ -27,6 +28,8 @@ def timer(category):
     startTime = time.time()
     response = input("are you done working? y/n \n")
     time_log(category, startTime)
+
+    
     
 def time_log(category, startTime):
     data = (time.time() - startTime)
@@ -43,7 +46,7 @@ def time_log(category, startTime):
 
 def save_time():
     # load from file
-    with open("d.txt") as json_file:
+    with open("d.txt", "a") as json_file:
         data = json.load(json_file)
 
     # add data
@@ -74,4 +77,5 @@ def save_time():
         print('From: ' + p['from'])
         print('')
 
-save_time()
+#save_time()
+start_up()
