@@ -84,4 +84,5 @@ def main():
     print( '{} days between {} and {}'.format(result1, d1, d2))
     print ("Happy programmer's day!")
 
-main()
+#main()
+get_stats()

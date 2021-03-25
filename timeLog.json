@@ -5,9 +5,17 @@
     {"category": "fun", "timeInMinutes": 20},
     {"category": "waste", "timeInMinutes": 30},
     {"category": "work", "timeInMinutes": 40},
-    {"category": "work", "timeInMinutes": 40}
+    {"category": "work", "timeInMinutes": 40},
+ {"category": "fun", "timeInMinutes": 20} 
+,
+ {"category": "fun", "timeInMinutes": 20} 
+,
+ {"category": "fun", "timeInMinutes": 20} 
+,
+ {"category": "fun", "timeInMinutes": 20} 
 ]
-    }
+
+}
     
 
-    hello world
+    

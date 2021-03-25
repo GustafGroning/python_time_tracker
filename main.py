@@ -1,6 +1,6 @@
 import time
 import datetime
-import stats as s
+#import stats as s
 import sys
 import json
 from datetime import date
@@ -46,18 +46,21 @@ def time_log(category, startTime):
 
 def save_time():
     # load from file
-    with open("timeLog.json", "a") as f:
-        f.write("hello world")
-        f.close()
+    a_dictionary = {"category": "TESTING", "timeInMinutes": 400}
+    with open('timeLog.json','r+') as f:
+        dic = json.load(f)
+        dic.update(a_dictionary)
+        json.dump(dic, f)
 
+def time_test():
+    with open('timeLog.json', 'r+') as f:
+        s = f.read()
+        index = s.rfind("]")
+        f.seek(index)
+        f.write(',\n {"category": "fun", "timeInMinutes": 20} \n')
+        f.write(s[index:])
   #{"category": "work", "timeInMinutes": 40} är hur formatet ska se ut när det är färdigt.
-"""
-    # print the data
-    for p in data['people']:
-        print('Name: ' + p['name'])
-        print('Website: ' + p['website'])
-        print('From: ' + p['from'])
-        print('')
-"""
-save_time()
+
+time_test()
+#save_time()
 #start_up()
