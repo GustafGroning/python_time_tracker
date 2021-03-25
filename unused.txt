@@ -57,3 +57,17 @@ f.close()
         time.sleep(1)
         check_window()
 """
+
+
+{ "timeSaved": [
+    {"category": "work", "timeInMinutes": 40},
+    {"category": "work", "timeInMinutes": 40},
+    {"category": "fun", "timeInMinutes": 20},
+    {"category": "waste", "timeInMinutes": 30},
+    {"category": "work", "timeInMinutes": 40},
+    {"category": "work", "timeInMinutes": 40}
+]
+    }
+    
+
+    

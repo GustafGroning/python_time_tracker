@@ -46,36 +46,18 @@ def time_log(category, startTime):
 
 def save_time():
     # load from file
-    with open("d.txt", "a") as json_file:
-        data = json.load(json_file)
+    with open("timeLog.json", "a") as f:
+        f.write("hello world")
+        f.close()
 
-    # add data
-    data['people'].append({
-        'name': 'Scott',
-        'website': 'stackabuse.com',
-        'from': 'Nebraska'
-    })
-    data['people'].append({
-        'name': 'Larry',
-        'website': 'google.com',
-        'from': 'Michigan'
-    })
-    data['people'].append({
-        'name': 'Tim',
-        'website': 'apple.com',
-        'from': 'Alabama'
-    })
-
-    # write back to the file
-    with open('d.txt', 'w') as outfile:
-        json.dump(data, outfile)
-
+  #{"category": "work", "timeInMinutes": 40} är hur formatet ska se ut när det är färdigt.
+"""
     # print the data
     for p in data['people']:
         print('Name: ' + p['name'])
         print('Website: ' + p['website'])
         print('From: ' + p['from'])
         print('')
-
-#save_time()
-start_up()
+"""
+save_time()
+#start_up()
