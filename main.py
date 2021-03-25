@@ -48,9 +48,10 @@ def repeat():
 
 
 def save_time(category, timeInt): #TODO: konvertera timeInt till minuter
-  
+    minutes = (timeInt / 60)
+    minutesConverted = round(minutes, 2)
     with open('timeLog.json', 'r+') as f:
-        taskInput = ", \n" + "{" + "\"category\": \"{}\", \"timeInMinutes\": {}".format(category, timeInt) + "}"
+        taskInput = ", \n" + "{" + "\"category\": \"{}\", \"timeInMinutes\": {}".format(category, minutesConverted) + "}"
         s = f.read()
         index = s.rfind("]")
         f.seek(index)

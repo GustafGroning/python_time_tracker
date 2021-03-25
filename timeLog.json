@@ -2,7 +2,8 @@
 { "timeSaved": [
 {"category": "work", "timeInMinutes": 0}, 
 {"category": "fun", "timeInMinutes": 0}, 
-{"category": "waste", "timeInMinutes": 0}]
+{"category": "waste", "timeInMinutes": 0},  
+{"category": "work", "timeInMinutes": 0.02}]
 }
     
 
