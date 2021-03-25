@@ -1,6 +1,6 @@
 import time
 import datetime
-#import stats as s
+import stats as s
 import sys
 import json
 from datetime import date
@@ -35,32 +35,33 @@ def time_log(category, startTime):
     data = (time.time() - startTime)
     timeInt = int(data)
 
-    print("you worked for", timeInt, "seconds in category", category) # det här är raden som ska bort och bli sparad tid istället
+    save_time(category, timeInt)
+    #print("you worked for", timeInt, "seconds in category", category) # det här är raden som ska bort och bli sparad tid istället
 
 
+def repeat():
     again = input("would you like to do something else? y/n \n")
     if again == "y":
         user_choice()
     if again == "n":
         sys.exit()
 
-def save_time():
-    # load from file
-    a_dictionary = {"category": "TESTING", "timeInMinutes": 400}
-    with open('timeLog.json','r+') as f:
-        dic = json.load(f)
-        dic.update(a_dictionary)
-        json.dump(dic, f)
 
-def time_test():
+def save_time(category, timeInt): #TODO: konvertera timeInt till minuter
+  
     with open('timeLog.json', 'r+') as f:
+        taskInput = ", \n" + "{" + "\"category\": \"{}\", \"timeInMinutes\": {}".format(category, timeInt) + "}"
         s = f.read()
         index = s.rfind("]")
         f.seek(index)
-        f.write(',\n {"category": "fun", "timeInMinutes": 20} \n')
+        f.write(taskInput)
         f.write(s[index:])
-  #{"category": "work", "timeInMinutes": 40} är hur formatet ska se ut när det är färdigt.
+    
+    repeat()
 
-time_test()
-#save_time()
-#start_up()
+def test(category, timeInt):
+    taskInput = ", \n" + "{" + "\"category\": \"{}\", \"timeInMinutes\": {}".format(category, timeInt) + "}"
+    print(taskInput)
+
+
+start_up()
