@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import array
-from datetime import *
+from datetime import date
 
 
 f = open('timeLog.json',) 
@@ -15,7 +15,7 @@ def get_stats():
     wasteList = []
     for i in data['timeSaved']:
 
-        if (i)['category'] == "work": # i blir alltså raden som den printar ifrån, timeInMinutes väljer vilket värde som ska printas.
+        if (i)['category'] == "work":
             workList.append(i['timeInMinutes'])
         
         if (i)['category'] == "fun":
@@ -24,33 +24,29 @@ def get_stats():
         if (i)['category'] == "waste":
             wasteList.append(i['timeInMinutes'])
         
-
     work = sum(workList)
     fun = sum(funList)
     waste = sum(wasteList)
-    # sums time spent in each category, sends to pie_chart for plotting.
+    #sums time spent in each category, sends to pie_chart for plotting.
 
     pie_chart(work, fun, waste)
-    bar_chart(work, fun, waste)
 
+def pie_chart( work,fun, waste): #the pie shows percentage of logged time spent in each category.
 
-def pie_chart( work,fun, waste): #the pie shows % time spent in each category
-
-    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+    #The pie chart, where the slices will be ordered and plotted counter-clockwise:
     labels = 'work', 'fun', 'waste'
     sizes = [work, fun, waste]
 
     fig1, ax1 = plt.subplots()
-    ax1.pie(sizes,  labels=labels, autopct='%1.1f%%',
-             startangle=90)
-    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax1.pie(sizes,  labels=labels, autopct='%1.1f%%', startangle=90)
+    ax1.axis('equal')  #Equal aspect ratio ensures that pie is drawn as a circle.
     plt.title('Time spent in different categories')
+
     plt.show()
 
     bar_chart(work, fun, waste)
 
-def bar_chart(work, fun, waste): #bar shows amount of time spent, in minutes
-
+def bar_chart(work, fun, waste): #bar shows amount of time logged in minutes
 
     minutesWorked = [work, fun, waste]
     bars = ('work', 'fun', 'waste')
@@ -61,26 +57,9 @@ def bar_chart(work, fun, waste): #bar shows amount of time spent, in minutes
     plt.title('Time spent in minutes')
     plt.xlabel('')
     plt.ylabel('values')
-
     plt.xticks(x_pos, bars)
 
     plt.show()
 
-    
-from datetime import date
-
-
-today = datetime.today()
-todayFormat = today.strftime("%Y-%m-%d" )
-print(todayFormat)
-
-def diff_dates(date1, date2):
-    return abs(date2-date1).days
-
-def main():
-    d1 = date(2013,1,1)
-    d2 = date(2013,9,13)
-    result1 = diff_dates(d2, d1)
-    print( '{} days between {} and {}'.format(result1, d1, d2))
-    print ("Happy programmer's day!")
+    f.close()
 
